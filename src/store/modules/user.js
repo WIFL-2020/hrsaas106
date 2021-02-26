@@ -26,7 +26,7 @@ const actions = {
     // axios会默认为数据加一层data
     // if (result.data.success) {
     // actions 修改state 必须通过mutations
-    context.commit('setToken', result.data.data)
+    context.commit('setToken', result)
     // }
   }
 }
