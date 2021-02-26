@@ -12,6 +12,7 @@
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
           <img :src="staffPhoto" class="user-avatar">
+          <!-- <img v-imageerror="defaultImg" :src="staffPhoto" class="user-avatar"> 图片不能显示时的自定义指令代码 -->
           <span class="name">{{ name }}</span>
           <i class="el-icon-caret-bottom" />
         </div>
@@ -44,6 +45,11 @@ import Hamburger from '@/components/Hamburger'
 export default {
   components: {
     Hamburger
+  },
+  data() {
+    return {
+      defaultImg: require('@/assets/common/head.jpg')
+    }
   },
   computed: {
     ...mapGetters([
