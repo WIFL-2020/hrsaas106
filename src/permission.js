@@ -5,14 +5,17 @@ import NProgress from 'nprogress'
 import 'nprogress/nprogress.css'
 
 const whileList = ['/login', '/404'] // 定义白名单
-router.beforeEach((to, from, next) => {
+router.beforeEach(async(to, from, next) => {
   NProgress.start() // 开启进度条
   // 判断是否有无token
   if (store.getters.token) {
-    // 如果有看看是不是去登录页
+    // 如果有,看看是不是去登录页
     if (to.path === 'login') {
       next('/') // 跳到主页
     } else {
+      if (!store.getters.userId) {
+        await store.dispatch('user/getUserInfo')
+      }
       next() // 放行
     }
   } else {

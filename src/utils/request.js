@@ -11,8 +11,8 @@ service.interceptors.request.use(config => {
   if (store.getters.token) {
     // 如果token存在就注入token
     config.headers['Authorization'] = `Bearer ${store.getters.token}`
-    return config // 必须返回配置
   }
+  return config // 必须返回配置 (重点返回必须些下面)
 }, error => {
   return Promise.reject(error)
 })
