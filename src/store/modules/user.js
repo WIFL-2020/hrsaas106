@@ -47,6 +47,12 @@ const actions = {
     const obj = { ...result, ...baseInfo }
     context.commit('setUserInfo', obj)
     return result
+  },
+  logout(context) {
+    // 删除Token
+    context.commit('removeToken')
+    // 删除用户资料
+    context.commit('removeUserInfo')
   }
 }
 export default {

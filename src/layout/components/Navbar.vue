@@ -63,8 +63,10 @@ export default {
       this.$store.dispatch('app/toggleSideBar')
     },
     async logout() {
+      // 调用vuex actions里面的方法 删除token 以及信息
       await this.$store.dispatch('user/logout')
-      this.$router.push(`/login?redirect=${this.$route.fullPath}`)
+      // 让页面跳转到登陆页面
+      this.$router.push('login')
     }
   }
 }
