@@ -1,8 +1,8 @@
 // 权限拦截 导航守卫 路由守卫 router
 import router from '@/router'
 import store from '@/store'
-import NProgress from 'nprogress'
-import 'nprogress/nprogress.css'
+import NProgress from 'nprogress' // 引入一份进度条插件
+import 'nprogress/nprogress.css' // 引入进度条样式
 
 const whileList = ['/login', '/404'] // 定义白名单
 router.beforeEach(async(to, from, next) => {
@@ -24,7 +24,7 @@ router.beforeEach(async(to, from, next) => {
       next()
     } else {
       // 否者跳转到主页
-      next('/')
+      next('/login')
     }
   }
   NProgress.done() // 手动强制关闭一次

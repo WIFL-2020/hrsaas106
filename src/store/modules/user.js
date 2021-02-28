@@ -1,4 +1,4 @@
-import { getToken, setToken, removeToken } from '@/utils/auth'
+import { getToken, setToken, removeToken, setTimeStamp } from '@/utils/auth'
 import { login, getUserInfo, getUserDetailById } from '@/api/user'
 // 状态
 // 初始化的时候从缓存中读取状态 并赋值到初始化的状态上
@@ -38,10 +38,12 @@ const actions = {
     // actions 修改state 必须通过mutations
     context.commit('setToken', result)
     // }
+    setTimeStamp()
   },
   // 获取用户资料action
   async getUserInfo(context) {
     const result = await getUserInfo()
+    // 获取头像需要  用户资料的ID
     const baseInfo = await getUserDetailById(result.userId)
     // 此时已经获取到了用户的基本资料 迫不得已 为了头像再次调用一个接口
     const obj = { ...result, ...baseInfo }

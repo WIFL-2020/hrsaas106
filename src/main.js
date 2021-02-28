@@ -20,6 +20,7 @@ import * as directives from '@/directives'
 // 遍历所有的导出的指令对象 完成自定义全局注册
 Object.keys(directives).forEach(key => {
   // 注册自定义指令
+  // console.log(key, directives[key])
   Vue.directive(key, directives[key])
 })
 /**

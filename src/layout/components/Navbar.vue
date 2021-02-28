@@ -12,7 +12,8 @@
       <el-dropdown class="avatar-container" trigger="click">
         <div class="avatar-wrapper">
           <img :src="staffPhoto" class="user-avatar">
-          <!-- <img v-imageerror="defaultImg" :src="staffPhoto" class="user-avatar"> 图片不能显示时的自定义指令代码 -->
+          <!-- <img v-imagerror="defaultImg" :src="staffPhoto" class="user-avatar"> -->
+          <!-- 图片不能显示时的自定义指令代码 -->
           <span class="name">{{ name }}</span>
           <i class="el-icon-caret-bottom" />
         </div>
@@ -66,7 +67,7 @@ export default {
       // 调用vuex actions里面的方法 删除token 以及信息
       await this.$store.dispatch('user/logout')
       // 让页面跳转到登陆页面
-      this.$router.push('login')
+      this.$router.push('/login')
     }
   }
 }
