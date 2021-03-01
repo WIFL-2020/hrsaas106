@@ -6,7 +6,7 @@ import { getTimeStamp } from '@/utils/auth'
 const TimeOut = 3600 // 设置有效时间
 const service = axios.create({
   baseURL: process.env.VUE_APP_BASE_API, // 设置axios请求的基础的基础地址（开发环境）
-  timeout: 2000 //  5秒超时时间
+  timeout: 5000 //  5秒超时时间
 })
 // 请求拦截器
 service.interceptors.request.use(config => {
